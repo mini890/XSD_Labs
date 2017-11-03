@@ -12,7 +12,7 @@
 							<element name="image" minOccurs="1" maxOccurs="1">
 								<simpleType>
 									<restriction base="string">
-										<pattern value="images\\(.)+\.(gif|jpg|jpeg|png|)" />
+										<pattern value="images\\(.)+\.(gif|jpg|jpeg|png)" />
 									</restriction>
 								</simpleType>
 							</element>
