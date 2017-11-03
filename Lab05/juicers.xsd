@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.juicers.org"
+	xmlns:tns="http://www.juicers.org" elementFormDefault="qualified">
+	<element name="juicers">
+		<complexType>
+			<sequence>
+				<element name="juicer" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name" type="string" minOccurs="1"
+								maxOccurs="1" />
+							<element name="image" minOccurs="1" maxOccurs="1">
+								<simpleType>
+									<restriction base="string">
+										<pattern value="images\\(.)+\.(gif|jpg|jpeg|png|)" />
+									</restriction>
+								</simpleType>
+							</element>
+							<element name="description" type="string" minOccurs="1"
+								maxOccurs="1" />
+							<element name="warranty" type="string" minOccurs="0" />
+							<element name="weight" type="nonNegativeInteger"
+								minOccurs="0" maxOccurs="1" />
+							<element name="cost" minOccurs="1" maxOccurs="unbounded">
+								<simpleType>
+									<restriction base="decimal">
+										<minInclusive value="0"></minInclusive>
+										<fractionDigits value="2"></fractionDigits>
+									</restriction>
+								</simpleType>
+							</element>
+							<element name="retailer" type="anyURI" minOccurs="1"
+								maxOccurs="1" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
