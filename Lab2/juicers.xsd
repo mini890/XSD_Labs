@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- elementFormDefault="qualified" attributeFormDefault="unqualified" -->
+<!-- xs:attribute - O que é? -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.juicers.org" xmlns="http://www.juicers.org"
+	elementFormDefault="qualified">
+	<xs:element name="juicers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="juicer" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" minOccurs="1"
+								maxOccurs="1" />
+							<xs:element name="image" type="xs:string" minOccurs="1"
+								maxOccurs="1" />
+							<xs:element name="description" type="xs:string"
+								minOccurs="1" maxOccurs="1" />
+							<xs:element name="warranty" type="xs:string"
+								minOccurs="0" />
+							<xs:element name="weight" minOccurs="0" maxOccurs="1" />
+							<xs:element name="cost" type="xs:string" minOccurs="1"
+								maxOccurs="unbounded" />
+							<xs:element name="retailer" type="xs:string"
+								minOccurs="1" maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

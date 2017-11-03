@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<juicers xmlns="http://www.juicers.org" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance.xsd"
+<juicers xmlns="http://www.juicers.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.juicers.org juicers.xsd">
 	<juicer>
 		<name>OJ Home Juicer</name>

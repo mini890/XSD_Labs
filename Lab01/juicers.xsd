@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- elementFormDefault="qualified" attributeFormDefault="unqualified" -->
-<!-- xs:attribute - O que é? -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.juicers.org" xmlns="http://www.juicers.org"
-	elementFormDefault="qualified">
-	<xs:element name="juicers">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="juicer">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="name" type="xs:string"></xs:element>
-							<xs:element name="image" type="xs:string"></xs:element>
-							<xs:element name="description" type="xs:string"></xs:element>
-							<xs:element name="warranty" type="xs:string"></xs:element>
-							<xs:element name="cost" type="xs:double"></xs:element>
-							<!-- <xs:element name="cost" type="xs:float"></xs:element> -->
-							<xs:element name="retailer" type="xs:string"></xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-</xs:schema>
+<!-- attribute - O que é? -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.juicers.org"
+	xmlns:j="http://www.juicers.org" elementFormDefault="qualified">
+
+	<element name="juicers">
+		<complexType>
+			<sequence>
+				<element ref="j:juicer" maxOccurs="unbounded" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="juicer">
+		<complexType>
+			<sequence>
+				<element ref="j:name" minOccurs="1" maxOccurs="1" />
+				<element ref="j:image" minOccurs="1" maxOccurs="1" />
+				<element ref="j:description" minOccurs="1" maxOccurs="1" />
+				<element ref="j:warranty" minOccurs="0" />
+				<element ref="j:weight" minOccurs="0" maxOccurs="1" />
+				<element ref="j:cost" minOccurs="1" maxOccurs="unbounded" />
+				<element ref="j:retailer" minOccurs="1" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="name"></element>
+	<element name="image" type="string"></element>
+	<element name="description" type="string"></element>
+	<element name="warranty" type="string"></element>
+	<element name="weight" type="string"></element>
+	<element name="cost" type="string"></element>
+	<element name="retailer" type="string"></element>
+
+</schema>
