@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.juicers.org"
+	xmlns:tns="http://www.juicers.org" elementFormDefault="qualified">
+	<element name="juicers">
+		<complexType>
+			<sequence>
+				<element name="juicer" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name" type="string" minOccurs="1"
+								maxOccurs="1" />
+							<element name="image" type="anyURI" minOccurs="1"
+								maxOccurs="1" />
+							<element name="description" type="string" minOccurs="1"
+								maxOccurs="1" />
+							<element name="warranty" type="string" minOccurs="0" />
+							<element name="weight" type="nonNegativeInteger"
+								minOccurs="0" maxOccurs="1" />
+							<element name="cost" type="decimal" minOccurs="1"
+								maxOccurs="unbounded" />
+							<element name="retailer" type="anyURI" minOccurs="1"
+								maxOccurs="1" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
