@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.juicers.org"
+	xmlns:tns="http://www.juicers.org" elementFormDefault="qualified">
+
+	<element name="warranty" type="string" />
+	<element name="guarantee" substitutionGroup="tns:warranty" />
+
+	<element name="juicers">
+		<complexType>
+			<sequence>
+				<element name="juicer" minOccurs="0" maxOccurs="unbounded"
+					type="tns:juiceApplianceType" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<simpleType name="imageType">
+		<restriction base="string">
+			<pattern value="images\\(.)+\.(gif|jpg|jpeg|png)" />
+		</restriction>
+	</simpleType>
+
+	<!-- <simpleType name="moneyType"> <restriction base="decimal"> <minInclusive 
+		value="0"></minInclusive> <fractionDigits value="2"></fractionDigits> </restriction> 
+		</simpleType> -->
+
+	<complexType name="moneyType">
+		<simpleContent>
+			<extension base="decimal">
+				<attribute name="currency" type="string"></attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="applianceType">
+		<sequence>
+			<element name="description" type="string" minOccurs="1" />
+			<element ref="tns:warranty" minOccurs="0" />
+		</sequence>
+		<attribute type="string" name="id" />
+		<attribute type="boolean" name="electric" />
+		<attribute type="string" name="type" />
+	</complexType>
+
+	<complexType name="juiceApplianceType">
+		<complexContent>
+			<extension base="tns:applianceType">
+				<sequence>
+					<element name="name" type="string" minOccurs="1" maxOccurs="1" />
+					<element name="image" type="tns:imageType" minOccurs="1"
+						maxOccurs="1" />
+					<element name="weight" type="nonNegativeInteger" minOccurs="0"
+						maxOccurs="1" />
+					<element name="cost" type="tns:moneyType" minOccurs="1"
+						maxOccurs="unbounded" />
+					<element name="retailer" type="anyURI" minOccurs="1"
+						maxOccurs="1" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+</schema>
