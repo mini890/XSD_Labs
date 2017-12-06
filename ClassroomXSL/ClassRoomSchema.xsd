@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.examples.org/ClassRoomSchema" xmlns:crs="http://www.examples.org/ClassRoomSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<!-- An annotation, it can appear within elements too... -->
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+			Class room schema for
+			examples.com.
+
+			Regras:
+			. Uma Class deve conter uma sequência de 1
+			Professor e pelo menos 4 Student e um elemento Bibliography.
+			. Os
+			elementos Professor e Student são composto pelos elementos:
+			FirstName, LastName, Login e Password dispostos em qualquer ordem.
+			. O
+			elemento Bibliography deve ser do tipo misto e poderá conter 1 ou
+			mais elementos Bookname.
+    	</xs:documentation>
+	</xs:annotation>
+
+	<!-- Define simple elements -->
+	<xs:element name="Professor" type="crs:personType" />
+	<xs:element name="Student" type="crs:personType" />
+	<xs:element name="BookName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<!-- Define complex elements -->
+	<xs:element name="Bibliography">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element ref="crs:BookName" minOccurs="1" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Class">
+		<xs:annotation>
+			<xs:documentation>
+				The element Class should be the only element used
+				as root in the output
+				XML files.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="crs:Professor" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="crs:Student" minOccurs="4" maxOccurs="unbounded" />
+				<xs:element ref="crs:Bibliography" minOccurs="1"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Define complex types -->
+	<xs:complexType name="personType">
+		<xs:all>
+			<xs:element name="FirstName" type="xs:string" />
+			<xs:element name="LastName" type="xs:string" />
+			<xs:element name="Login" type="crs:loginType" />
+			<xs:element name="Password" type="crs:passwdType" />
+		</xs:all>
+		<xs:attribute name="webpage" type="xs:anyURI" use="optional" />
+		<!-- xs:attribute name="Title" type="crs:titleType" use="required" / -->
+		<xs:attribute name="Title" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Mr." />
+					<xs:enumeration value="Ms." />
+					<xs:enumeration value="Dr." />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- Define simple types -->
+	<xs:simpleType name="loginType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="6" />
+			<xs:maxLength value="12" />
+			<xs:whiteSpace value="collapse" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="passwdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z_]{6,12}" />
+			<xs:whiteSpace value="collapse" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="titleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Mr." />
+			<xs:enumeration value="Ms." />
+			<xs:enumeration value="Dr." />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

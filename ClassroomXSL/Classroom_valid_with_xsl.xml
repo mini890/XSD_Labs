@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="Classroom.xsl" type="text/xsl"?>
+<crs:Class xmlns:crs="http://www.examples.org/ClassRoomSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.examples.org/ClassRoomSchema ClassRoomSchema.xsd ">
+	<crs:Professor Title="Dr." webpage="http://www.inescporto.pt/~mao">
+		<crs:LastName>Amaro Oliveira</crs:LastName>
+		<crs:FirstName>Marco</crs:FirstName>
+		<crs:Password>FCP_o_maior</crs:Password>
+		<crs:Login>d001571</crs:Login>
+	</crs:Professor>
+	<crs:Student Title="Ms.">
+		<crs:FirstName>Tânia</crs:FirstName>
+		<crs:LastName>Castro</crs:LastName>
+		<crs:Login>a001123</crs:Login>
+		<crs:Password>__________</crs:Password>
+	</crs:Student>
+	<crs:Student Title="Mr." webpage="http://www.google.com">
+		<crs:Login>a0022444</crs:Login>
+		<crs:Password>_abcdef_</crs:Password>
+		<crs:FirstName>Abel</crs:FirstName>
+		<crs:LastName>Ferreira</crs:LastName>
+	</crs:Student>
+	<crs:Student Title="Mr.">
+		<crs:Password>ABCDEFGH</crs:Password>
+		<crs:FirstName>Michael</crs:FirstName>
+		<crs:Login>a0023413</crs:Login>
+		<crs:LastName>Mendonça</crs:LastName>
+	</crs:Student>
+	<crs:Student Title="Mr.">
+		<crs:FirstName>Nuno</crs:FirstName>
+		<crs:LastName>Moreira</crs:LastName>
+		<crs:Login>a0023534</crs:Login>
+		<crs:Password>XyZxYz</crs:Password>
+	</crs:Student>
+	<crs:Student Title="Ms.">
+		<crs:FirstName>Antónia</crs:FirstName>
+		<crs:LastName>Malta</crs:LastName>
+		<crs:Login>crs:Login</crs:Login>
+		<crs:Password>XyZxYz</crs:Password>
+	</crs:Student>
+	<crs:Bibliography>
+		Bibliografia fundamental:
+		<crs:BookName>Gustavo Alonso, Fabio Casati, Harumi Kuno, Vijay Machiraju, Web Services: Concepts, Architectures and Applications, Springer, ISBN: 3-540-44008-9</crs:BookName>
+		Bibliografia complementar:
+		<crs:BookName>José Carlos Leite Ramalho, Pedro Rangel Henriques, XML e XSL da Teoria à Prática, FCA Editores.</crs:BookName>
+	</crs:Bibliography>
+</crs:Class>

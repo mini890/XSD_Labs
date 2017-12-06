@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crs:Class xmlns:crs="http://www.examples.org/ClassRoomSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.examples.org/ClassRoomSchema ClassRoomSchema.xsd "> 
+	<crs:Student Title="Msc."> <!-- Error @Title value not allowed, only Ms., Mr. and Dr. -->
+		<crs:FirstName>Tânia</crs:FirstName>
+		<crs:LastName>Castro</crs:LastName>
+		<crs:Login>a001123 12345</crs:Login> <!-- Error Login lenght at most 12 chars -->
+		<crs:Password>__________</crs:Password> <!-- Valid Password supports spaces after and before (should collapse) -->
+	</crs:Student>
+	<crs:Student webpage="http://www.google.com"> <!-- Error @Title mandatory -->
+		<crs:Login>a0022444</crs:Login>
+		<crs:Password>_abcdef_ghijk</crs:Password> <!-- Error Password lenght at most 12 chars -->
+		<crs:FirstName>Abel</crs:FirstName>
+		<crs:LastName>Ferreira</crs:LastName>
+	</crs:Student>
+	<crs:Student Title="Mr.">
+		<crs:Password>ABCDEFGH123</crs:Password> <!-- Error Password only letters and _ allowed -->
+		<crs:FirstName>Michael</crs:FirstName>
+		<crs:Login>a0023 413</crs:Login> <!-- Valid Login supports spaces (should collapse) -->
+		<crs:LastName>Mendonça</crs:LastName>
+	</crs:Student> <!-- Error at least 4 students required -->
+	<crs:Bibliography>
+		Bibliografia fundamental:
+		<crs:BookName>Gustavo Alonso, Fabio Casati, Harumi Kuno, Vijay Machiraju, Web Services: Concepts, Architectures and Applications, Springer, ISBN: 3-540-44008-9</crs:BookName>
+	</crs:Bibliography>	
+	<crs:Bibliography> <!-- Error only 1 bibliography allowed -->
+		Bibliografia complementar:
+		<crs:BookName>José Carlos Leite Ramalho, Pedro Rangel Henriques, XML e XSL da Teoria à Prática, FCA Editores.</crs:BookName>
+	</crs:Bibliography>
+	<crs:Professor Title="Dr." webpage="http://www.inescporto.pt/~mao"> <!-- Error first element inside Class should be Professor -->
+		<crs:LastName>Amaro Oliveira</crs:LastName>
+		<crs:FirstName>Marco</crs:FirstName>
+		<crs:Password>FCP_o maior</crs:Password> <!-- Error Password no spaces allowed -->
+		<crs:Login>d0015</crs:Login> <!-- Error Login lenght at least 6 chars -->
+	</crs:Professor>
+</crs:Class>
